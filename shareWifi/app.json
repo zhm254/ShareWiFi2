@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/connectWifi/connectWifi",
+    "pages/scanCodeResult/scanCodeResult",
+    "pages/makeWifiCode/makeWifiCode",
+    "pages/madeWiFiCode/madeWiFiCode",
+    "pages/operateWiFiCode/operateWiFiCode",
+    "pages/WiFiCode/WiFiCode",
+    "pages/unlock/unlock",
+    "pages/scanCodeEntered/scanCodeEntered",
+    "pages/tologin/tologin",
+    "pages/shareEntered/shareEntered",
+    "pages/webViewPage/webViewPage",
+    "pages/AndroidWifiList/AndroidWifiList",
+    "pages/shareResult/shareResult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "扫码连WiFi",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#33CA01",
+    "list": [
+      {
+        "pagePath": "pages/connectWifi/connectWifi",
+        "text": "连接WiFi"
+      },
+      {
+        "pagePath": "pages/makeWifiCode/makeWifiCode",
+        "text": "制作WiFi码"
+      }
+    ]
+  }
+}

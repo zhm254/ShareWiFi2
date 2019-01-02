@@ -1,0 +1,8 @@
+<view wx:if="{{flag===1}}">
+  <view class='connect-result'>连接成功</view>
+  <button bindtap='goHomePage' class='go-home-page'>回到首页</button>
+</view>
+<view wx:if="{{flag===2}}">
+  <view class='connect-result'>连接失败</view>
+  <button bindtap='goHomePage' class='go-home-page'>回到首页</button>
+</view>

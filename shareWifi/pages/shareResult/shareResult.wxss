@@ -1,0 +1,11 @@
+.connect-result {
+  text-align: center;
+  margin: 200rpx 0 100rpx 0;
+  font-size: 46rpx;
+}
+
+.go-home-page {
+  width: 60%;
+  background-color: #33ca01;
+  color: white;
+}
