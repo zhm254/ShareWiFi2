@@ -8,11 +8,6 @@ Page({
 
   },
   getWifiList: function() {
-    // var wifiList = getApp().wifiList;
-    // if (wifiList.length != 0) {
-    //   getApp().wifiList = [];
-    //   console.log(getApp().wifiList);
-    // }
     wx.startWifi({
       success: (res) => {
         //console.log(res);

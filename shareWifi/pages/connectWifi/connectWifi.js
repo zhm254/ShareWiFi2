@@ -188,16 +188,16 @@ Page({
       this.setData({
         wifiList: this.data.wifiList
       });
-      //console.log(this.data.wifiList);
     }
+    //console.log(this.data.wifiList);
     //console.log(getApp().globalData.wifiList);
     if (getApp().globalData.wifiList != []) {
       getApp().globalData.wifiList = [];
       this.setData({
         wifiList: getApp().globalData.wifiList
       });
-      //console.log(getApp().globalData.wifiList);
     }
+    //console.log(getApp().globalData.wifiList);
     wx.navigateTo({
       url: '../unlock/unlock'
     })
@@ -212,6 +212,22 @@ Page({
             url: '../AndroidWifiList/AndroidWifiList'
           })
         } else if (res.platform === 'ios' && (parseInt(res.system.substr(4))) >= 11) {
+          //console.log(this.data.wifiList);
+          if (this.data.wifiList != []) {
+            this.data.wifiList = [];
+            this.setData({
+              wifiList: this.data.wifiList
+            });
+          }
+          //console.log(this.data.wifiList);
+          //console.log(getApp().globalData.wifiList);
+          if (getApp().globalData.wifiList != []) {
+            getApp().globalData.wifiList = [];
+            this.setData({
+              wifiList: getApp().globalData.wifiList
+            });
+          }
+          //console.log(getApp().globalData.wifiList);
           wx.navigateTo({
             url: '../unlock/unlock'
           })
@@ -290,28 +306,29 @@ Page({
                 this.setData({
                   wifiList: this.data.wifiList
                 });
-                //console.log(this.data.wifiList);
               }
+              //console.log(this.data.wifiList);
               //console.log(getApp().globalData.wifiList);
               if (getApp().globalData.wifiList != []) {
                 getApp().globalData.wifiList = [];
                 this.setData({
                   wifiList: getApp().globalData.wifiList
                 });
-                //console.log(getApp().globalData.wifiList);
               }
-
+              //console.log(getApp().globalData.wifiList);
             },
             fail: () => {
-              var app = getApp();
-              for (var i = 0; i < app.globalData.wifiList.length; i++) {
-                if (app.globalData.wifiList[i].SSID != '') {
-                  this.data.wifiList.push(app.globalData.wifiList[i]);
+              //var app = getApp();
+              //console.log(app.globalData.wifiList);
+              for (var i = 0; i < getApp().globalData.wifiList.length; i++) {
+                if (getApp().globalData.wifiList[i].SSID != '') {
+                  this.data.wifiList.push(getApp().globalData.wifiList[i]);
                   this.setData({
                     wifiList: this.data.wifiList
                   });
                 }
               }
+              //console.log(app.globalData.wifiList);
               //console.log(this.data.wifiList.length);
               // console.log(this.data.wifiList);
               //console.log("fail");
