@@ -50,6 +50,13 @@ Page({
                 duration: 2000
               })
             }
+            if (res.errCode === 12006) {
+              wx.showToast({
+                title: '请先打开GPS定位开关',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           }
         })
       }
@@ -172,6 +179,13 @@ Page({
             if (res.errCode === 12005) {
               wx.showToast({
                 title: '请先打开WiFi开关',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+            if (res.errCode === 12006) {
+              wx.showToast({
+                title: '请先打开GPS定位开关',
                 icon: 'none',
                 duration: 2000
               })

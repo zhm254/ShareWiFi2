@@ -10,31 +10,39 @@ Page({
   getWifiList: function() {
     wx.startWifi({
       success: (res) => {
-        //console.log(res);
-        wx.getWifiList({
-          // success: (res) => {
-          //   console.log(res);
-          // }
+        wx.getSystemInfo({
+          success: (res) => {
+            //console.log(res);
+            if (res.platform === 'ios') {
+              //console.log(res.system);
+              //console.log((res.system).substring(0, 8));
+              var str = (res.system).substring(0, 8);
+              //console.log(str);
+              if (str === 'iOS 11.0' || str === 'iOS 11.1') {
+                wx.showToast({
+                  title: '请更换到iOS11或以上且非iOS11.0系列和非iOS11.1系列的系统',
+                  icon: 'none',
+                  duration: 3000
+                })
+              } else {
+                wx.getWifiList({
+                  success: (res) => {
+                    //console.log(res);
+                  }
+                })
+                wx.onGetWifiList((res) => {
+                  //console.log(res);
+                  getApp().globalData.wifiList = res.wifiList;
+                  wx.switchTab({
+                    url: '../connectWifi/connectWifi',
+                  })
+                })
+              }
+            }
+          },
         })
       }
     })
-
-    wx.onGetWifiList((res) => {
-      //console.log(res);
-      var app = getApp();
-      app.globalData.wifiList = res.wifiList;
-      wx.switchTab({
-        url: '../connectWifi/connectWifi',
-        // success: () => {
-        //   console.log("tab-success");
-        // },
-        // fail: () => {
-        //   console.log("tab-fail");
-        // }
-      })
-    })
-
-
   },
 
   /**

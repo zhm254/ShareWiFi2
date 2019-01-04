@@ -56,6 +56,12 @@ Page({
                       icon: 'none',
                       duration: 2000
                     })
+                  } else if (res.errCode === 12006) {
+                    wx.showToast({
+                      title: '请先打开GPS定位开关',
+                      icon: 'none',
+                      duration: 2000
+                    })
                   } else {
                     wx.showToast({
                       title: '连接失败',
