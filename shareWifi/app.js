@@ -1,6 +1,8 @@
 App({
   globalData: {
     wifiList: [],
+    ssid: '',
+    pw: ''
   },
   onLaunch: function() {
     // wx.getUserInfo({

@@ -47,24 +47,28 @@ Page({
     this.setData({
       timeoutId: this.data.timeoutId
     });
-    wx.getConnectedWifi({
+    wx.startWifi({
       success: (res) => {
-        //console.log(res);
-        this.data.flag = 1;
-        this.setData({
-          flag: this.data.flag
-        });
-        //console.log(this.data.flag);
-        // this.data.connectedWifi = res.wifi.SSID;
-        // this.setData({
-        //   connectedWifi: this.data.connectedWifi
-        // });
-      },
-      fail: () => {
-        this.data.flag = 2;
-        this.setData({
-          flag: this.data.flag
-        });
+        wx.getConnectedWifi({
+          success: (res) => {
+            //console.log(res);
+            this.data.flag = 1;
+            this.setData({
+              flag: this.data.flag
+            });
+            //console.log(this.data.flag);
+            // this.data.connectedWifi = res.wifi.SSID;
+            // this.setData({
+            //   connectedWifi: this.data.connectedWifi
+            // });
+          },
+          fail: () => {
+            this.data.flag = 2;
+            this.setData({
+              flag: this.data.flag
+            });
+          }
+        })
       }
     })
   },

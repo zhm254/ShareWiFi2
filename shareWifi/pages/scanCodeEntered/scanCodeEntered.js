@@ -28,7 +28,7 @@ Page({
                 SSID: this.data.ssid,
                 password: this.data.password,
                 success: (res) => {
-                  //console.log(res)
+                  //console.log(res);
                   wx.getConnectedWifi({
                     success: () => {
                       //wx.hideLoading();
@@ -37,12 +37,21 @@ Page({
                         icon: 'success',
                         duration: 2000
                       })
+                      getApp().globalData.ssid = this.data.ssid;
+                      getApp().globalData.pw = this.data.password;
                       wx.redirectTo({
                         url: '../scanCodeResult/scanCodeResult?scene=' + this.data.scene
                       })
                     },
                     fail: (res) => {
-                      //cososle.log(res);
+                      //console.log(res);
+                      if (res.errCode === 12006) {
+                        wx.showToast({
+                          title: '请先打开GPS定位开关',
+                          icon: 'none',
+                          duration: 2000
+                        })
+                      }
                     }
                   })
                 },
@@ -100,6 +109,8 @@ Page({
                         icon: 'success',
                         duration: 2000
                       })
+                      getApp().globalData.ssid = this.data.ssid;
+                      getApp().globalData.pw = this.data.password;
                       wx.redirectTo({
                         url: '../scanCodeResult/scanCodeResult?scene=' + this.data.scene
                       })

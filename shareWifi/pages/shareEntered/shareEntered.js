@@ -37,12 +37,21 @@ Page({
                         icon: 'success',
                         duration: 2000
                       })
+                      getApp().globalData.ssid = this.data.wifiName;
+                      getApp().globalData.pw = this.data.wifiPw;
                       wx.redirectTo({
                         url: '../shareResult/shareResult?wifiId=' + this.data.wifiId
                       })
                     },
                     fail: (res) => {
-                      //cososle.log(res);
+                      //console.log(res);
+                      if (res.errCode === 12006) {
+                        wx.showToast({
+                          title: '请先打开GPS定位开关',
+                          icon: 'none',
+                          duration: 2000
+                        })
+                      }
                     }
                   })
                 },
@@ -99,6 +108,8 @@ Page({
                         icon: 'success',
                         duration: 2000
                       })
+                      getApp().globalData.ssid = this.data.wifiName;
+                      getApp().globalData.pw = this.data.wifiPw;
                       wx.redirectTo({
                         url: '../shareResult/shareResult?wifiId=' + this.data.wifiId
                       })
@@ -114,6 +125,9 @@ Page({
                       })
                     }
                   })
+                },
+                fail: (res) => {
+                  //console.log(res);
                 }
               })
             }

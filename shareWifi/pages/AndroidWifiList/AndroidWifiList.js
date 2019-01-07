@@ -82,6 +82,18 @@ Page({
     this.setData({
       showModal: this.data.showModal
     });
+    if (this.data.isdisabled) {
+      this.data.isdisabled = false;
+      this.setData({
+        isdisabled: this.data.isdisabled
+      })
+    }
+    if (this.data.inputPassword != '') {
+      this.data.inputPassword = '';
+      this.setData({
+        inputPassword: this.data.inputPassword
+      })
+    }
   },
   inputChange: function(e) {
     // console.log(typeof(e.detail.value));
@@ -133,12 +145,15 @@ Page({
           success: (res) => {
             //console.log(res);
             wx.getConnectedWifi({
-              success: () => {
+              success: (res) => {
+                //console.log(res);
                 wx.showToast({
                   title: 'WiFi连接成功',
                   icon: 'success',
                   duration: 2000
                 })
+                getApp().globalData.ssid = e.currentTarget.dataset.wifi.SSID;
+                getApp().globalData.pw = this.data.WiFiPassword;
                 var ssid = e.currentTarget.dataset.wifi.SSID;
                 var bssid = e.currentTarget.dataset.wifi.BSSID;
                 var password = this.data.WiFiPassword;
@@ -238,6 +253,12 @@ Page({
       });
       //console.log(this.data.wifiList);
     }
+    if (this.data.showModal === true) {
+      this.data.showModal = false;
+      this.setData({
+        showModal: this.data.showModal
+      });
+    }
     wx.startWifi({
       success: (res) => {
         //console.log(res);
@@ -258,6 +279,20 @@ Page({
           },
           fail: (res) => {
             //console.log(res);
+            if (res.errCode === 12005) {
+              wx.showToast({
+                title: '请先打开WiFi开关',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+            if (res.errCode === 12006) {
+              wx.showToast({
+                title: '请先打开GPS定位开关',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           }
         })
       }

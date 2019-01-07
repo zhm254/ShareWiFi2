@@ -6,7 +6,8 @@ Page({
    */
   data: {
     wifiId: '',
-    timeoutId: ''
+    timeoutId: '',
+    flag: ''
   },
   goHomePage: function() {
     wx.reLaunch({
@@ -43,20 +44,25 @@ Page({
     this.setData({
       timeoutId: this.data.timeoutId
     });
-    wx.getConnectedWifi({
+    wx.startWifi({
       success: (res) => {
-        this.data.flag = 1;
-        this.setData({
-          flag: this.data.flag
-        });
-      },
-      fail: () => {
-        this.data.flag = 2;
-        this.setData({
-          flag: this.data.flag
-        });
+        wx.getConnectedWifi({
+          success: (res) => {
+            this.data.flag = 1;
+            this.setData({
+              flag: this.data.flag
+            });
+          },
+          fail: () => {
+            this.data.flag = 2;
+            this.setData({
+              flag: this.data.flag
+            });
+          }
+        })
       }
     })
+
   },
 
   /**

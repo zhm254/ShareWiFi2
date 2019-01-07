@@ -1,0 +1,14 @@
+page {
+  background-color: #f8f8f8;
+}
+
+.code-container {
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.code {
+  width: 520rpx;
+  height: 520rpx;
+  margin: 60rpx 0;
+}

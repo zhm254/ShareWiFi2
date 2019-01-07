@@ -1,0 +1,7 @@
+<view class='code-container'>
+  <view>请使用微信扫一扫即可连上WiFi</view>
+  <view>
+    <image src='{{data.data}}' class='code'></image>
+  </view>
+  <view>{{ssid}}</view>
+</view>

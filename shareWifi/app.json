@@ -12,7 +12,8 @@
     "pages/shareEntered/shareEntered",
     "pages/webViewPage/webViewPage",
     "pages/AndroidWifiList/AndroidWifiList",
-    "pages/shareResult/shareResult"
+    "pages/shareResult/shareResult",
+    "pages/generatedShareCode/generatedShareCode"
   ],
   "window": {
     "backgroundTextStyle": "light",

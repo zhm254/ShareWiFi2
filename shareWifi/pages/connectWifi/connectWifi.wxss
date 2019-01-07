@@ -125,6 +125,7 @@ input-holder {
   height: 90rpx;
   line-height: 90rpx;
   font-size: 36rpx;
+  background-color: #fff;
 }
 
 .btn-style::after {
@@ -135,4 +136,35 @@ input-holder {
   width: 50%;
   text-align: center;
   border-left: 0.5px solid #dedede;
+}
+
+.showInputPw-dialog {
+  width: 560rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 45%;
+  left: 0;
+  z-index: 9999;
+  background: #ccc;
+  margin: -328rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.showInputPw-input {
+  background: #ccc;
+  border-bottom: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 32rpx;
+}
+
+.showInputPw-btn-style {
+  color: #33ca01;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  background-color: #ccc;
+}
+
+.showInputPw-btn-style::after {
+  border: none;
 }
