@@ -1,3 +1,7 @@
+page {
+  background-color: #f3f3f3;
+}
+
 .title {
   text-align: center;
   margin-top: 100rpx;
@@ -145,13 +149,14 @@ input-holder {
   top: 45%;
   left: 0;
   z-index: 9999;
-  background: #ccc;
+  background: #fff;
   margin: -328rpx 105rpx;
   border-radius: 36rpx;
+  border: 1rpx solid #dedede;
 }
 
 .showInputPw-input {
-  background: #ccc;
+  background: #fff;
   border-bottom: 2rpx solid #ddd;
   border-radius: 4rpx;
   font-size: 32rpx;
@@ -162,7 +167,7 @@ input-holder {
   height: 90rpx;
   line-height: 90rpx;
   font-size: 36rpx;
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 .showInputPw-btn-style::after {

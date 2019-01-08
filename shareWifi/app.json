@@ -17,13 +17,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f3f3f3",
     "navigationBarTitleText": "扫码连WiFi",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#000000",
     "selectedColor": "#33CA01",
+    "backgroundColor": "#f3f3f3",
     "list": [
       {
         "pagePath": "pages/connectWifi/connectWifi",

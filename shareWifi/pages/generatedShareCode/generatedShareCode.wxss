@@ -1,5 +1,5 @@
 page {
-  background-color: #f8f8f8;
+  background-color: #f3f3f3;
 }
 
 .code-container {
@@ -11,4 +11,9 @@ page {
   width: 520rpx;
   height: 520rpx;
   margin: 60rpx 0;
+}
+
+.wifi-name {
+  margin-bottom: 60rpx;
+  font-weight: bold;
 }

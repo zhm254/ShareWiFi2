@@ -1,3 +1,7 @@
+page {
+  background-color: #f3f3f3;
+}
+
 .outer-container {
   text-align: center;
   margin-top: 80rpx;

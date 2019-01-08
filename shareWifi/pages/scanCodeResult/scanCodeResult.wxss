@@ -27,6 +27,10 @@
   color: #fff;
 } */
 
+page {
+  background-color: #f3f3f3;
+}
+
 .connect-result {
   text-align: center;
   margin: 200rpx 0 100rpx 0;

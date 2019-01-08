@@ -3,5 +3,6 @@
   <view>
     <image src='{{data.data}}' class='code'></image>
   </view>
-  <view>{{ssid}}</view>
+  <view class='wifi-name'>{{ssid}}</view>
+  <view>可到“制作WiFi码->已制作好的WiFi码”下查看已生成的WiFi码</view>
 </view>

@@ -58,9 +58,14 @@ Page({
     this.setData({
       showInputPw: this.data.showInputPw
     });
+    wx.showLoading({
+      title: '生成中',
+    })
     var openid = wx.getStorageSync('openid');
     var ssid = this.data.connectedWifi;
     var pw = this.data.inputPw;
+    getApp().globalData.ssid = this.data.connectedWifi;
+    getApp().globalData.pw = this.data.inputPw;
     wx.request({
       url: 'https://wifi.cou8123.cn/api/wxapp/public/getWXACode',
       data: {
@@ -76,6 +81,7 @@ Page({
         this.setData({
           inputPw: this.data.inputPw
         });
+        wx.hideLoading();
         wx.navigateTo({
           url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid
         })
@@ -92,6 +98,9 @@ Page({
         showInputPw: this.data.showInputPw
       });
     } else {
+      wx.showLoading({
+        title: '生成中',
+      })
       wx.request({
         url: 'https://wifi.cou8123.cn/api/wxapp/public/getWXACode',
         data: {
@@ -103,6 +112,7 @@ Page({
         method: 'POST',
         success: (res) => {
           //console.log(res);
+          wx.hideLoading();
           wx.navigateTo({
             url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid
           })
