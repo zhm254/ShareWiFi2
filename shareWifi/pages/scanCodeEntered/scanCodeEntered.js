@@ -148,6 +148,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(query) {
+    //console.log(decodeURIComponent(query.scene));
     this.data.scene = decodeURIComponent(query.scene);
     this.setData({
       scene: this.data.scene

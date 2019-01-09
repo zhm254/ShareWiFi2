@@ -83,7 +83,7 @@ Page({
         });
         wx.hideLoading();
         wx.navigateTo({
-          url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid
+          url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid + '&pw=' + pw
         })
       },
     })
@@ -114,7 +114,7 @@ Page({
           //console.log(res);
           wx.hideLoading();
           wx.navigateTo({
-            url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid
+            url: '../generatedShareCode/generatedShareCode?data=' + JSON.stringify(res.data.data) + '&ssid=' + ssid + '&pw=' + pw
           })
         },
       })

@@ -14,6 +14,16 @@ page {
 }
 
 .wifi-name {
-  margin-bottom: 60rpx;
+  margin-bottom: 40rpx;
   font-weight: bold;
+}
+
+.btn-container {
+  display: flex;
+  margin-top: 40rpx;
+}
+
+.btn {
+  background-color: #33ca01;
+  color: white;
 }

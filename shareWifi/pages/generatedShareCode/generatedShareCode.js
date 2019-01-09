@@ -5,9 +5,52 @@ Page({
    */
   data: {
     data: '',
-    ssid: ''
+    ssid: '',
+    pw: ''
   },
-
+  saveToAlbum: function() {
+    wx.getImageInfo({
+      src: this.data.data.data,
+      success: (res) => {
+        //console.log(res)
+        wx.saveImageToPhotosAlbum({
+          filePath: res.path,
+          success: (res) => {
+            //console.log(res);
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 2000
+            })
+          },
+          fail: (res) => {
+            //console.log(res);
+            wx.getSetting({
+              success: (res) => {
+                if (!res.authSetting['scope.writePhotosAlbum']) {
+                  wx.showModal({
+                    title: '扫码连WiFi提醒您',
+                    content: '保存到相册失败，需要获取您的授权才能保存哦',
+                    showCancel: false,
+                    success: (res) => {
+                      if (res.confirm) {
+                        //console.log('用户点击确定');
+                        wx.openSetting({
+                          success: (res) => {
+                            //console.log(res.authSetting);
+                          }
+                        })
+                      }
+                    }
+                  })
+                }
+              }
+            })
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,11 +60,15 @@ Page({
     this.setData({
       data: this.data.data
     });
+    //console.log(this.data.data);
     this.data.ssid = options.ssid;
     this.setData({
       ssid: this.data.ssid
     });
-
+    this.data.pw = options.pw;
+    this.setData({
+      pw: this.data.pw
+    });
   },
 
   /**
@@ -69,7 +116,17 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function(res) {
+    return {
+      title: '邀请你连WiFi',
+      path: '/pages/shareEntered/shareEntered?wifiName=' + this.data.ssid + '&wifiPw=' + this.data.pw + '&wifiId=' + this.data.data.id,
+      success: (res) => {
+        wx.showToast({
+          title: "分享成功",
+          icon: 'success',
+          duration: 2000
+        })
+      },
+    }
   }
 })

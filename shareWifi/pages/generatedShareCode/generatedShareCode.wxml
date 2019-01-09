@@ -5,4 +5,8 @@
   </view>
   <view class='wifi-name'>{{ssid}}</view>
   <view>可到“制作WiFi码->已制作好的WiFi码”下查看已生成的WiFi码</view>
+  <view class='btn-container'>
+    <button class='btn' bindtap='saveToAlbum'>保存到相册</button>
+    <button class='btn' open-type='share'>分享给好友</button>
+  </view>
 </view>
