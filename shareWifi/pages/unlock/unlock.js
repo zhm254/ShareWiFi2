@@ -26,12 +26,9 @@ Page({
                 })
               } else {
                 wx.getWifiList({
-                  success: (res) => {
-                    //console.log(res);
-                  }
+                  success: (res) => {}
                 })
                 wx.onGetWifiList((res) => {
-                  //console.log(res);
                   getApp().globalData.wifiList = res.wifiList;
                   wx.switchTab({
                     url: '../connectWifi/connectWifi',
@@ -39,7 +36,7 @@ Page({
                 })
               }
             }
-          },
+          }
         })
       }
     })
